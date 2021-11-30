@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook UI Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  <script defer src="index.ad60fc64349251b94287.js"></script><link href="index.ad60fc64349251b94287.css" rel="stylesheet"></head>
+  <body id='body-content' class="bg-fb-bg dark:bg-gray-100">
+    <!-- header -->
+    <header
+      class="
+        top-0
+        left-0
+        right-0
+        w-full
+        h-[56px]
+        bg-fb-header
+        dark:bg-white
+        fixed
+        flex
+        items-center
+        justify-between
+        p-1
+        z-50
+        shadow-sm
+        border-b
+        border-gray-700
+        dark:border-b 
+        dark:border-white
+      "
+    >
+      <!-- left -->
+
+      <div class="flex items-center p-2">
+        <svg
+          viewBox="0 0 36 36"
+          class="cursor-pointer fill-current text-fb mr-1"
+          height="39"
+          width="39"
+        >
+          <defs>
+            <linearGradient x1="50%" x2="50%" y1="97.0782153%" y2="0%">
+              <stop offset="0%" stop-color="#0062E0"></stop>
+              <stop offset="100%" stop-color="#19AFFF"></stop>
+            </linearGradient>
+          </defs>
+          <path
+            d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z"
+          ></path>
+          <path
+            class="fill-current text-white"
+            d="M25 23l.8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z"
+          ></path>
+        </svg>
+        <button class="headerBtn mr-1 lg:hidden">
+          <img class='w-full h-[15px]' src="https://bruce-fe-fb.web.app/image/search.svg" alt="" />
+        </button>
+        <!-- 電腦版會顯示搜尋框 -->
+        <div class="hidden lg:flex items-center bg-fb-input rounded-full w-[250px] p-2 pl-2 dark:bg-gray-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[16px] h-[16px] ml-1 mr-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#9ba3af"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+          <input
+            class="bg-fb-input text-white pl-1 outline-none dark:bg-gray-100 dark:text-black"
+            type="text"
+            name="search"
+            id="search"
+            placeholder="搜尋 Facebook"
+          />
+        </div>
+        <!-- menu 手機版顯示 -->
+        <div id='menu-navBar' class="cursor-pointer lg:hidden">
+          <svg class='fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2.3em" height="2.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M80 96h352v32H80z"/><path fill="currentColor" d="M80 240h352v32H80z"/><path fill="dark:black" d="M80 384h352v32H80z"/></svg>
+        </div>
+      </div>
+      <!-- right -->
+      <div class="mr-1 p-2 relative flex items-center z-40">
+        <div class="sm:flex">
+          <label class="cursor-pointer">
+              <div class="relative cursor-pointer">
+                  <input type="checkbox" id="darkMode" class="darkMode absolute w-[1px] h-[1px] hidden">
+                  <div id='bgContainer' class="bg-moon w-[60px] h-[36px] rounded-full"></div>
+  
+                  <div id='circleBtn' class="dot absolute top-1 left-1 bg-white w-[26px] h-[27px] rounded-full transition">
+                  </div>
+                  <p id='moon-mode'class="absolute top-1 left-9 text-center pr-1 pt-[2px]">🌛</p>
+                  <p id='light-mode' class="hidden absolute top-1 left-2 text-center pr-1 pt-[2px]">🌞</p>
+              </div>
+          </label>
+        </div>
+        <button class="headerBtn relative dark:focus:bg-blue-200" id="plusBtn">
+          <svg class='absolute top-1 left-1 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" fill="dark:black"/></svg>
+        </button>
+        <button class="headerBtn relative dark:focus:bg-blue-200" id="msgBtn">
+          <svg class='absolute top-2 left-2 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M5.683 18.418C3.436 16.722 2 14.14 2 11.248C2 6.14 6.477 2 12 2s10 4.14 10 9.248c0 5.107-4.477 9.248-10 9.248a10.77 10.77 0 0 1-2.96-.412l-3.357 1.891v-3.557zm5.25-9.703l-5.394 5.66l4.908-2.67l2.565 2.67l5.362-5.66l-4.853 2.622l-2.589-2.622z" fill="dark:black"/></svg>
+        </button>
+        <button class="headerBtn relative dark:focus:bg-blue-200" id="notifyBtn">
+          <svg class='absolute top-[7px] left-2 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2a2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6l2 2m-7 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" fill="dark:black"/></svg>
+        </button>
+        <button class="headerBtn relative dark:focus:bg-blue-200" id="moreBtn">
+          <svg class='absolute top-1 left-[5px] fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="dark:black"><path d="M17 10l-5 6l-5-6h10z" fill="dark:black"/></g></svg>
+        </button>
+        <!-- 下拉選單 1 -->
+        <div class="popover hidden" id="plus-panel">
+          <p class="text-white text-2xl mb-4 dark:text-black">建立</p>
+          <div class="flex items-center cursor-pointer hover:bg-fb-input rounded-lg mb-2 dark:hover:bg-gray-100">
+            
+            <div class="flex bg-fb-input rounded-full p-2 mt-1 mb-1 ml-1 dark:bg-gray-200">
+              <svg class='fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z" fill="currentColor"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" fill="dark:black"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-white text-sm pl-2 dark:text-black">貼文</p>
+              <p class="text-gray-500 text-xs pl-2">在動態消息發佈貼文</p>
+            </div>
+          </div>
+        </div>
+        <!-- 下拉選單 2 -->
+        <div class="popover hidden flex-col" id="msg-panel">
+          <p class="text-2xl text-white mb-1 dark:text-black">Messenger</p>
+          <div class="flex items-center bg-fb-input rounded-full p-2 mb-2 dark:bg-gray-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-[18px] h-[18px] mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#9ba3af"
+              >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <input class='bg-fb-input text-white outline-none dark:bg-gray-100' type="text" name="" id="" placeholder="搜尋 messenger">
+          </div>
+          <div class="flex items-center justify-center cursor-pointer hover:bg-fb-input p-2 rounded-lg dark:hover:bg-gray-200">
+            <div class="rounded-full overflow-hidden w-[50px] h-[50px] ring-[1px] ring-gray-300">
+              <img class='w-full object-cover' src="https://upload.cc/i1/2021/09/16/M3YTJP.jpg" alt="">
+            </div>
+            <div class="ml-2 flex-1">
+              <p class="text-white text-lg dark:text-black">Tsai</p>
+              <p class="text-gray-500 text-xs">You: 什麼時候要約出來玩啊 · 3分鐘前</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center cursor-pointer hover:bg-fb-input p-2 rounded-lg dark:hover:bg-gray-100">
+            <div class="rounded-full overflow-hidden w-[50px] h-[50px] ring-[1px] ring-gray-300">
+              <img src="https://upload.cc/i1/2021/09/16/cghaYu.jpg" alt="">
+            </div>
+            <div class="ml-2 flex-1">
+              <p class="text-white text-lg dark:text-black">Winnie</p>
+              <p class="text-gray-500 text-xs">我們禮拜一去做蛋糕 <span class="text-sm text-blue-400">·</span> 現在</p>
+            </div>
+          </div>
+        </div>
+        <!-- 下拉選單 3 -->
+        <div class="popover hidden" id='notify-panel'>
+          <p class="text-2xl text-white dark:text-black">通知</p>
+          <div class="flex items-center hover:bg-fb-input p-2 mt-4 rounded-lg cursor-pointer">
+            <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
+              <img class='object-cover w-full' src="https://upload.cc/i1/2021/09/16/ZyMdoQ.jpg" alt="">
+            </div>
+            <div class="px-2 flex-1">
+              <p class="text-white text-sm dark:text-black">雪茄說了你的相片讚 !</p>
+              <p class="text-fb text-xs">1小時前</p>
+            </div>
+          </div> 
+        </div>
+        <!-- 下拉選單 4 -->
+        <div class="popover hidden" id='more-panel'>
+          <div class="flex-col">
+            <div class="flex items-center mb-4 hover:cursor-pointer">
+              <div class="w-[60px] h-[60px] rounded-full overflow-hidden mr-2 ring-[1px] ring-gray-700 dark:ring-gray-100" >
+                <img src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+              </div>
+              <div class='flex-1'>
+                <p class="text-white text-lg mb-1 dark:text-black">Harry</p>
+                <p class="text-gray-400 text-xs">查看你的個人檔案</p>
+              </div>
+            </div>
+            <div class='w-full border-t border-gray-600 mb-2 dark:border-gray-300'></div>
+            <div id='dark' class="flex items-center p-1 ml-1 mb-1 hover:bg-fb-input rounded-lg cursor-pointer dark:hover:bg-gray-100">
+              <div class="bg-fb-input rounded-full pt-2 pb-2 mr-2 dark:bg-gray-200">
+                <svg class='ml-2 mr-2 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97c0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1c0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z" fill="dark:black"/></svg>
+              </div>
+              <p class="text-white flex-1 dark:text-black">設定和隱私</p>
+              <svg class='ml-2 mr-2 fill-current text-gray-500 dark:text-gray-700' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1l-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z" fill="dark:text-gray-700"/></svg>
+            </div>
+            <div id='light' class="flex items-center p-1 ml-1 mb-2 hover:bg-fb-input rounded-lg cursor-pointer dark:hover:bg-gray-100">
+              <div class="bg-fb-input rounded-full pt-2 pb-2 mr-2 dark:bg-gray-200">
+                <svg class='ml-2 mr-2 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459c-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174c.195-.195.437-.393.691-.599c.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 0 0-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z" fill="dark:black"/></svg>
+              </div>
+              <p class="text-white flex-1 dark:text-black">協助與支援</p>
+              <svg class='ml-2 mr-2 fill-current text-gray-500 dark:text-gray-700' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1l-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z" fill="dark:text-gray-700"/></svg>
+            </div>
+            <div class="flex items-center hover:bg-fb-input cursor-pointer rounded-lg dark:hover:bg-gray-100">
+              <div class="bg-fb-input rounded-full pt-2 pb-2 ml-2 mr-2 dark:bg-gray-200">
+                <svg class='ml-2 mr-2 fill-current text-white dark:text-black' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5l-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z" fill="dark:black"/></svg>
+              </div>
+              <div>
+                <p class="text-white dark:text-black">登出</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 隱藏菜單區塊 -->
+     <div
+     id="menu-block"
+     class="
+       z-50
+       hidden
+       w-full
+       h-screen
+       absolute
+       top-[56px]
+       left-0
+       right-0
+       bg-fb-bg
+       dark:bg-gray-100
+       lg:hidden
+     "
+     >
+       <div id='menu-nav-bar' class="flex-col mt-2 overflow-y-auto max-h-[90vh]">
+         <!-- 由元件產生 之後會添加 “顯示更多” 功能，我先製作漢堡菜單 -->
+       </div>
+     </div>
+    </header>
+     
+    
+
+    <main id='main' class="flex pt-main-span lg:flex">
+      <!-- 左側資訊欄 -->
+      <div
+        class="hidden sticky top-main-span w-full h-full max-w-[360px] desktop:block"
+      >
+        <div id ='nav-bar-left' class="flex-col">
+          <!-- 由元件產生 -->
+        </div>
+
+      </div>
+
+      <!-- 動態牆 -->
+      <div class="w-full max-w-[744px] mx-auto mt-2 min-h-[150vh] overflow-x-hidden lg:px-4">
+        <!-- 限時動態 -->
+        <div class="relative z-0 mr-1">
+          <div id='storyCard' class="flex overflow-x-auto no-scrollbar max-h-[190px] sm:max-h-[198px]">
+            <!-- 第一張卡片 -->
+            <div class="flex-1 px-[4px] min-w-[120px]">
+              <div class="h-full rounded-xl flex flex-col overflow-hidden cursor-pointer">
+                <div class="h-full overflow-hidden duration-500 hover:scale-110">
+                  <img class='w-full h-full object-cover' src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+                </div>
+                <div class="bg-fb-card pb-3 px-2 pt-6 relative dark:bg-white">
+                  <button class="flex justify-center items-center w-[32px] h-[32px] p-2 absolute -top-4 left-[calc(50%-12.5px)] bg-fb rounded-full ring-fb-bg ring dark:ring-white">
+                    <img src="https://bruce-fe-fb.web.app/image/plus.svg" alt="">
+                  </button>
+                  <p class="text-white w-full text-center dark:text-black">建立限時動態</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <!-- <div class="flex-1 px-[4px] max-w-[180px] cursor-pointer">
+              <div class="h-full flex-col rounded-lg overflow-hidden">
+                <div class="h-full overflow-hidden">
+                  img 少了 w-full 造成照片拉長
+                  <img class='h-full object-cover duration-500 hover:scale-110' src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+                </div>
+              </div>
+            </div> -->
+            
+          </div>
+          <!-- 右滑按鈕 -->
+          <div class="p-1 absolute top-[calc(50%-16px)] right-0 bottom-0 w-[35px] h-[35px] bg-fb-active rounded-full cursor-pointer hover:bg-fb-card dark:ring-[1px] dark:ring-gray-300 dark:bg-white dark:hover:bg-gray-200 lg:-right-4">
+            <svg class='fill-current text-gray-300 dark:text-gray-700' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.8em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11H4z" fill="dark:text-gray-700"/></svg>
+          </div>
+        </div>
+        <!-- 發文區 -->
+        <div class="bg-fb-card w-full mt-7 p-3 rounded-lg dark:bg-white dark:shadow-md"> 
+          <div class="flex mb-4 cursor-pointer">
+            <div class="w-[50px] h-[50px] rounded-full overflow-hidden mr-2">
+              <img src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+            </div>
+            <input class='flex-1 rounded-full bg-fb-input text-sm outline-none pl-4 text-white dark:bg-gray-200 dark:text-black' type="text" placeholder="Harry，你在想些什麼？">
+          </div>
+          <div class="border-t border-gray-700 mb-3 dark:border-gray-200"></div>
+          <div class="flex items-center">
+            <button class="flex flex-1 h-[35px] items-center justify-center hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+              <div class="w-[20px] h-[20px] mr-2">
+                <img src="https://bruce-fe-fb.web.app/image/camera.svg" alt="">
+              </div>
+              <p class="text-white text-[15px] dark:text-gray-500">直播視訊</p>
+            </button>
+            <button class="flex flex-1 h-[35px] items-center justify-center hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+              <div class="w-[20px] h-[20px] mr-2">
+                <img src="https://bruce-fe-fb.web.app/image/photo.svg" alt="">
+              </div>
+              <p class="text-white text-[15px] dark:text-gray-500">相片 / 影片</p>
+            </button>
+            <button class="flex flex-1 h-[35px] items-center justify-center hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+              <div class="w-[20px] h-[20px] mr-2">
+                <img src="https://bruce-fe-fb.web.app/image/feel.svg" alt="">
+              </div>
+              <p class="text-white text-[15px] dark:text-gray-500">感受 / 活動</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- 包廂輪播 -->
+        <div class="bg-fb-card w-full mt-4 p-3 mb-4 rounded-lg flex items-center dark:bg-white dark:shadow-md">
+          <!-- Swiper -->
+          <div class="swiper fb-live z-0">
+            <div class="swiper-wrapper flex items-center" id="swiper-wrapper-fb-live">
+              
+              <div class="swiper-slide">
+                <button class="min-w-[130px] flex items-center ring-1 ring-gray-300 h-[35px] rounded-full px-4 outline-none hover:bg-fb-active dark:hover:bg-gray-200">
+                  <div class="w-[24px]">
+                    <img src="https://bruce-fe-fb.web.app/image/video.svg" alt="">
+                  </div>
+                  <p class="text-fb font-bold ml-2">建立包廂</p>
+                </button>
+              </div>
+
+            </div>
+            <div class="swiper-button-next outline-none dark:ring-[1px] dark:ring-gray-200 dark:bg-white dark:hover:bg-gray-200">
+              <svg class='fill-current text-gray-300 dark:text-gray-700' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1l-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z" fill="dark:text-gray-700"/></svg>
+            </div>
+            <div class="swiper-button-prev outline-none dark:ring-[1px] dark:ring-gray-200 dark:bg-white dark:hover:bg-gray-200">
+              <svg class='fill-current text-gray-300 dark:text-gray-700' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281l360-281.1c3.8-3 6.1-7.7 6.1-12.6z" fill="dark:text-gray-700"/></svg>
+            </div>
+            <!-- wrrapper end -->
+          
+          </div>
+          <!-- swiper container end -->
+
+        </div>
+        <!-- 包廂輪播 END -->
+
+        <!-- 貼文區塊 1 -->
+        <div class="bg-fb-card w-full mt-4 flex-col items-center rounded-lg mb-4 dark:bg-white dark:shadow-md">
+          <div class="w-full flex items-center justify-between">
+            <div class="flex items-center p-2 ml-2">
+              <div class="ring-[1px] ring-gray-700 w-[40px] h-[40px] rounded-full overflow-hidden mr-3 cursor-pointer dark:ring-gray-100">
+                <img src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+              </div>
+              <div>
+                <p class="text-white font-bold cursor-pointer dark:text-black dark:font-bold">Harry</p>
+                <div class="flex items-center">
+                  <p class="text-gray-300 text-xs mr-1 dark:text-gray-600">剛剛</p>
+                  <div class="text-fb mr-1">·</div>
+                  <img class='w-[12px]' src="https://bruce-fe-fb.web.app/image/earth.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <button class="w-[15px] mr-4">
+              <img src="https://bruce-fe-fb.web.app/image/more.svg" alt="">
+            </button>
+          </div>
+          <div class="ml-4 mb-2">
+            <p class="text-white dark:text-black">網站開發中 ~~</p>
+          </div>
+          <div class="w-full max-h-[600px]">
+            <a href="#" target="_self">
+              <img class="w-full max-h-[500px] object-cover" src="https://upload.cc/i1/2021/09/24/m8pqrQ.jpeg" alt="">
+            </a>
+            <a href="#" target="_self">
+              <div class="bg-fb-input w-full p-2 dark:bg-gray-200">
+                <p class="text-gray-400 text-sm mb-1 ml-1 dark:text-gray-500">https://harry.com.tw</p>
+                <p class="text-white ml-2 tracking-wide dark:text-gray-900 dark:font-bold">Harry Blog</p>
+              </div>
+            </a>
+          </div>
+          <!-- 讚 -->
+          <div class="bg-fb-card rounded-lg dark:bg-white">
+            <div class="flex justify-between items-center p-2">
+              <div class="flex items-center ml-2">
+                <div class="w-[28px]">
+                  <img class='mr-2' src="https://bruce-fe-fb.web.app/image/like-blue.svg" alt="">
+                </div>
+                <p class="text-gray-400 text-sm dark:text-gray-500">3.8 ten-thousand</p>
+              </div>
+              
+              
+              <div class="flex mr-2">
+                <p class="text-gray-400 text-sm dark:text-gray-500">1.23k則留言</p>
+              </div>
+            </div>
+            <div class="border-t border-gray-700 mb-2 mt-1 ml-4 mr-4 dark:border-gray-200"></div>
+            <div class="flex ml-4 mr-4">
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1' src="https://bruce-fe-fb.web.app/image/like.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">讚</p>
+              </button>
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1' src="https://bruce-fe-fb.web.app/image/chat.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">留言</p>
+              </button>
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1' src="https://bruce-fe-fb.web.app/image/share.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">分享</p>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+        <!-- 貼文區塊 2 -->
+        <div class="bg-fb-card w-full mt-4rounded-lg flex-col items-center rounded-lg mb-4 dark:bg-white dark:shadow-md">
+          <div class="w-full flex items-center justify-between">
+            <div class="flex items-center p-2 ml-2">
+              <div class="ring-[1px] ring-gray-700  w-[40px] h-[40px] rounded-full overflow-hidden mr-3 cursor-pointer dark:ring-gray-100">
+                <img src="https://upload.cc/i1/2021/10/06/iAMFSn.jpeg" alt="">
+              </div>
+              <div>
+                <p class="text-white font-bold cursor-pointer dark:text-black dark:font-bold">Harry</p>
+                <div class="flex items-center">
+                  <p class="text-gray-300 text-xs mr-1 dark:text-gray-600">剛剛</p>
+                  <div class="text-fb mr-1">·</div>
+                  <img class='w-[12px]' src="https://bruce-fe-fb.web.app/image/earth.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <button class="w-[15px] mr-4">
+              <img src="https://bruce-fe-fb.web.app/image/more.svg" alt="">
+            </button>
+          </div>
+          <div class="ml-4 mb-2">
+            <p class="text-white dark:text-black">我的 Medium 個人技術部落格</p>
+          </div>
+          <div class="w-full max-h-[600px]">
+            <a href="https://medium.com/my-back-end-life" target="_blank">
+              <img class="w-full max-h-[500px] object-cover" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmxvZyUyMHBvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+            </a>
+            <a href="https://medium.com/my-back-end-life" target="_blank">
+              <div class="bg-fb-input w-full p-2 dark:bg-gray-200">
+                <p class="text-gray-400 text-sm mb-1 ml-1 dark:text-gray-500">https://medium.com/my-back-end-life</p>
+                <p class="text-white ml-2 tracking-wide dark:text-gray-900 dark:font-bold">我的後端人生</p>
+              </div>
+            </a>
+          </div>
+          <!-- 讚 -->
+          <div class="bg-fb-card rounded-lg dark:bg-white">
+            <div class="flex justify-between items-center p-2">
+              <div class="flex items-center ml-2">
+                <div class="w-[28px]">
+                  <img class='mr-2' src="https://bruce-fe-fb.web.app/image/like-blue.svg" alt="">
+                </div>
+                <p class="text-gray-400 text-sm dark:text-gray-500">66.6k</p>
+              </div>
+              <div class="flex mr-2">
+                <p class="text-gray-400 text-sm mr-2 dark:text-gray-500">1.23k則留言</p>
+                <p class="text-gray-400 text-sm dark:text-gray-500">2k分享</p>
+              </div>
+            </div>
+            <div class="border-t border-gray-700 mb-2 mt-1 ml-4 mr-4 dark:border-gray-200"></div>
+            <div class="flex ml-4 mr-4">
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1'src="https://bruce-fe-fb.web.app/image/like.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">讚</p>
+              </button>
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1' src="https://bruce-fe-fb.web.app/image/chat.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">留言</p>
+              </button>
+              <button class="flex flex-1 h-[30px] items-center justify-center mb-2 hover:bg-fb-active rounded-lg dark:hover:bg-gray-200">
+                <img class='w-[20px] mr-1' src="https://bruce-fe-fb.web.app/image/share.svg" alt="">
+                <p class="text-gray-400 dark:text-gray-700">分享</p>
+              </button>
+            </div>
+            
+          </div>
+    
+        </div>
+
+        <!-- loading posts block -->
+        <div id='loading'>
+          <!-- js 產生 -->
+        </div>
+        <!-- loading end -->
+
+
+      </div>
+
+      <!-- 右側聯絡人 -->
+      <div
+        class="hidden sticky top-main-span w-full h-full max-w-[360px] ipad:block"
+      >
+        <p class="text-gray-400 text-xl mb-4 dark:text-gray-700">聯絡人</p>
+        <div id='contect-right' class="flex-col">
+          <!-- 產生聯絡人元件 -->
+        </div>
+      </div>
+    </main>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </body>
+</html>
+
+
+

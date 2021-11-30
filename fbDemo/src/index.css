@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .headerBtn {
+    @apply m-1 w-[39px] h-[39px] bg-fb-popover rounded-full p-[10px] cursor-pointer hover:bg-fb-card dark:bg-gray-200 dark:hover:bg-gray-300;
+  }
+  .popover {
+    @apply w-[300px] p-4 bg-fb-header rounded-lg shadow-xl absolute right-2 top-[56px] z-[1px] border border-fb-input lg:w-[360px] dark:bg-white dark:border-gray-200;
+  }
+
+  .contect-popover {
+    @apply w-[350px] bg-fb-card p-4 absolute right-[360px] border-[2px] border-fb-input rounded-lg shadow-xl dark:bg-white dark:border-white
+  }
+}
+
+/* chorme opera safari */
+.no-scrollbar::-webkit-scrollbar {
+    display:none;
+}
+/* firefox */
+.no-scrollbar {
+    scrollbar-width:none;
+}
+
+.swiper {
+    padding: 4px !important;
+    width: 100%;
+}
+.swiper-wrapper {
+    width: 100%;
+}
+.swiper-slide {
+    width: auto !important;
+    margin-right: 2px !important;
+}
+.swiper-button-prev {
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    border-radius: 9999px;
+    background-color: #3e4042;
+    width: 44px !important;
+    height: 44px !important;
+    top: 23px !important;
+    right: 7px !important;
+}
+.swiper-button-prev::after {
+    display: none;
+}
+.swiper-button-next::after {
+    display: none;
+}
+.swiper-button-next {
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    border-radius: 9999px;
+    background-color: #3e4042;
+    width: 44px !important;
+    height: 44px !important;
+    top: 23px !important;
+    right: 7px !important;
+}
+.swiper-button-disabled {
+    display:none;
+}
+
+.darkMode:checked ~ .dot {
+    transform: translateX(100%);
+}
