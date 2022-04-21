@@ -363,7 +363,7 @@ let circleBtn = document.getElementById('circleBtn')
 let darkModeList = [lightBlock, moonBlock, circleBtn]
 /* 
    預設為暗黑模式
-   循環 darkModeList 元素，從 index 下去判斷點擊按鈕 做處理
+   循環 darkModeList 元素，從 index 下去判斷點擊按鈕做處理
    如果點到背景 或 circleBtn 都以 toogle 去判斷 lightBlock and moonBlock 兩顆按鈕是否存在 hidden
 */
 
