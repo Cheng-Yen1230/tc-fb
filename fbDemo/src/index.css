@@ -19,6 +19,7 @@
 .no-scrollbar::-webkit-scrollbar {
     display:none;
 }
+
 /* firefox */
 .no-scrollbar {
     scrollbar-width:none;
@@ -28,6 +29,7 @@
     padding: 4px !important;
     width: 100%;
 }
+
 .swiper-wrapper {
     width: 100%;
 }
@@ -49,9 +51,11 @@
 .swiper-button-prev::after {
     display: none;
 }
+
 .swiper-button-next::after {
     display: none;
 }
+
 .swiper-button-next {
     background-repeat: no-repeat;
     background-size: 24px;
@@ -63,6 +67,7 @@
     top: 23px !important;
     right: 7px !important;
 }
+
 .swiper-button-disabled {
     display:none;
 }
